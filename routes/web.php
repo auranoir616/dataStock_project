@@ -120,6 +120,10 @@ Route::get('/dashboard', function(){
 
 });
 
+Route::get('/topselling', [Controller_Data::class, 'TopSellingProduct']);
+Route::get('/stockcategory', [Controller_Data::class, 'StockEachCategories']);
+Route::get('/totalselling', [Controller_Data::class, 'TotalSelling']);
+Route::get('/lowstockalert', [Controller_Data::class, 'LowStockAlert']);
 
 
 

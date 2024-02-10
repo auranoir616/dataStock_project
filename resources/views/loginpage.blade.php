@@ -35,6 +35,9 @@
         article.loginpage{
             width: 100%
         }
+        .guest{
+          width: 100%;           
+        }
     </style>
 </head>
 <body>
@@ -78,13 +81,17 @@
                   </div>
                 <div class="row mb-3">
                     <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
-                    <input type="password" class="form-control" id="inputPassword" name="loginPassword">
+                    <input type="password" class="form-control" id="inputPassword" name="loginPassword" >
                 </div>
                 <hr>
                 <div class="d-grid gap-2 col-6 mx-auto">
                     <button class="btn btn-primary" type="submit">Login</button>
                   </div>
                      </form>
+                     <div class="guest">
+                      <p align="center"><b>username: admin<br>
+                      password: admin</b></p>
+                     </div>
             </div>
         </div>    
     </article>

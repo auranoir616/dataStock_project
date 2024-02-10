@@ -45,7 +45,7 @@
 
       <article>
         <div>
-          <form class="row row-cols-lg-auto g-3 align-items-center" method="POST" action="/productlist-add">
+          <form class="row row-cols-lg-auto g-3 align-items-center" method="POST" action="/productlist-add" id="formProduct">
             @csrf
             <div class="col-12">
               <div class="input-group">
@@ -60,6 +60,13 @@
               </div>
             </div>
             <div class="col-12">
+              <div class="input-group">
+                <div class="input-group-text">category</div>
+                <input type="text" class="form-control" id="addCategory" name="addCategory">
+              </div>
+            </div>
+
+            <div class="col-12">
               <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                 Add
               </button>
@@ -71,9 +78,11 @@
         <div  class="w-100 p-3">
           <table class="table table-hover js-sort-table">
             <thead>
-          <th>#</th>
-          <th>SKU</th>
-          <th>Product</th>
+          <th width="5%">#</th>
+          <th width="25%">SKU</th>
+          <th  width="25%">Product</th>
+          <th  width="25%">category</th>
+
         </thead>
         <tbody class="table-group-divider">
           @foreach($listSKU as $key=>$SKU)
@@ -81,6 +90,8 @@
               <td>{{$SKU->id-1}}</td>
             <td>{{$SKU->SKU}}</td>
             <td>{{$SKU->product}}</td>
+            <td>{{$SKU->category}}</td>
+
           </tr>
           @endforeach
         </tbody>
@@ -131,7 +142,7 @@ const notif = document.getElementById('notif')
  }, time);
 
  document.getElementById('submitButton').addEventListener('click', function(){
-  let form = document.querySelector('form')
+  let form = document.getElementById('formProduct')
       form.submit()
 })
 </script>

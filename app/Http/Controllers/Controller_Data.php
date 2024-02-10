@@ -111,10 +111,12 @@ class Controller_Data extends Controller
             $dataSKUReq = $request->validate([
                 'addSKU' => 'required',
                 'addProduct' => 'required',
+                'addCategory' =>'required'
             ]);
             $dataSKU = [
                 'SKU' => $request->addSKU,
                 'product' => $request->addProduct,
+                'category' => $request->addCategory,
             ];
 
             $saveDataSKU = SKU::create($dataSKU);
@@ -142,8 +144,70 @@ class Controller_Data extends Controller
 
    }
 
+//! dashboard
 
+public function TopSellingProduct(){
+    if(!auth()->check()){
+        return redirect('/');
+    }else{
+        $dataSKU = DB::table('items')->pluck('SKU'); // Ambil semua SKU dari tabel items
+        //top online order
+        $dataShipping = Shipping::whereIn('SKU', $dataSKU)
+        ->select('SKU', DB::raw('SUM(quantity) as qty'))
+        ->groupBy('SKU')
+        ->orderBy('qty', 'desc')
+        ->get();
+        //top offline order
+        $dataOrder = Order::whereIn('SKU', $dataSKU)
+        ->select('SKU', DB::raw('SUM(quantity) as qty'))
+        ->groupBy('SKU')
+        ->orderBy('qty', 'desc')
+        ->get();
+        dd($dataSKU, $dataShipping, $dataOrder);
     }
+}
+
+public function StockEachCategories(){
+    if(!auth()->check()){
+        return redirect('/');
+    }else{
+        $dataCategory = DB::table('items')->pluck('categories'); // Ambil semua SKU dari tabel items
+        $stockcategories = Items::whereIn('categories', $dataCategory)
+        ->select('categories', DB::raw('SUM(quantity) as qty'))
+        ->groupBy('categories')
+        ->orderBy('qty', 'desc')
+        ->get();
+
+        return response()->json($stockcategories);
     
+    }
+}
+public function TotalSelling() {
+    if (!auth()->check()) {
+        return response()->json(['message' => 'Unauthorized'], 401);
+    } else {
+        $totalSelling = Order::select(DB::raw('DATE(updated_at) as date'), DB::raw('SUM(subtotal) as total'))
+            ->groupBy(DB::raw('DATE(updated_at)'))
+            ->orderBy('date', 'desc')
+            ->get();
+
+        return response()->json($totalSelling);
+    }
+}
+
+public function LowStockAlert(){
+    if(!auth()->check()){
+        return response()->json(['message' => 'Unauthorized'], 401);
+    }else{
+        $dataLowStock = DB::table('items')->select('name','quantity')->orderBy('quantity')->limit(5)->get();
+
+        return response()->json($dataLowStock);
+    
+    }
+}
+
+
+
+} 
     
 

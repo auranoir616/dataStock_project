@@ -94,7 +94,6 @@
                             <ul class="dropdown-menu">
                               <li><a class="dropdown-item" href="/dataPO-view/{{$data->purchase_id}}">View Detail</a></li>
                               <li><a @if($data->submited == 'yes') class="dropdown-item disabled" @else class="dropdown-item " @endif href="" onclick="deletePO('{{$data->purchase_id}}')">Delete</a></li>
-                              <li><a class="dropdown-item" href="#">Action three</a></li>
                             </ul>
                           </div>
                         </td>
