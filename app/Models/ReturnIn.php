@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class ReturnIn extends Model
 {
     use HasFactory;
-    protected $table = 'returnIn';
+    protected $table = 'returnin';
     protected $fillable = [
             'return_id',
             'shipping_id',

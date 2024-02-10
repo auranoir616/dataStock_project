@@ -44,7 +44,7 @@
   <hr>
 </div>
 <article>
-<h3>comming soon</h3>
+<h3>coming soon</h3>
       </article>
     @include('_footer')
 </main>
