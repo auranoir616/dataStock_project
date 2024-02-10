@@ -1,0 +1,34 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     */
+    public function up(): void
+    {
+        Schema::create('in', function (Blueprint $table) {
+            $table->id(); //!PK
+            $table->string('SKU'); //!FK
+            $table->integer('quantity');
+            $table->date('date_in');
+            $table->string('receipt_number');
+            $table->string('supplier_id'); //!FK
+            $table->string('notes');
+            $table->timestamps();
+        });
+
+    }
+
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
+    {
+        //
+    }
+};
