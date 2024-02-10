@@ -144,9 +144,9 @@ class Controller_ReceiveGoods extends Controller
             $POFile = $dataPOCompleted->where('file','<>',null)->pluck('file')->all();
             $dataSKU = $dataPOCompleted->pluck('SKU');
             $dataItemsPO = DB::table('purchase_order')
-            ->join('Items', 'purchase_order.SKU', '=', 'Items.SKU')
+            ->join('items', 'purchase_order.SKU', '=', 'items.SKU')
             ->where('purchase_order.purchase_id', $request['selectID'])
-            ->select('Items.*','purchase_order.id','purchase_order.purchase_id', 'purchase_order.file', 'purchase_order.quantity','purchase_order.supplier','purchase_order.invoice','purchase_order.submited')
+            ->select('items.*','purchase_order.id','purchase_order.purchase_id', 'purchase_order.file', 'purchase_order.quantity','purchase_order.supplier','purchase_order.invoice','purchase_order.submited')
             ->get();
             if(!$dataPOCompleted){
                 return redirect()->back()->with('error','data not found');

@@ -134,9 +134,9 @@ class Controller_Data extends Controller
         $dataOrder = Order::where('product','like',"%$query%")->get();
         $dataIn = In::where('product_name','like',"%$query%")->get();
         $dataReturn = ReturnIn::where('product','like',"%$query%")->get();
-        $dataPO = DB::table('purchase_order')->join('Items', 'purchase_order.SKU', '=', 'Items.SKU')
+        $dataPO = DB::table('purchase_order')->join('items', 'purchase_order.SKU', '=', 'items.SKU')
 
-        ->where('items.name','like',"%$query%")->select('Items.name as product_name', 'purchase_order.*')->get();
+        ->where('items.name','like',"%$query%")->select('items.name as product_name', 'purchase_order.*')->get();
 // dd($dataOrder);
         return view('searchResult', compact('dataReturn','dataItems','dataShipping','dataOrder','dataIn','dataPO'));
 

@@ -82,9 +82,9 @@ class Controller_PurchaseOrder extends Controller
             if(auth()->check()){
 
             $dataPOView = DB::table('purchase_order')
-            ->join('Items', 'purchase_order.SKU', '=', 'Items.SKU')
+            ->join('items', 'purchase_order.SKU', '=', 'items.SKU')
             ->where('purchase_order.purchase_id', $IDPO)
-            ->select('Items.*', 'purchase_order.*')
+            ->select('items.*', 'purchase_order.*')
             ->paginate(5);
                 return view('purchaseOrderView',compact('dataPOView','IDPO'));   
     
