@@ -150,7 +150,7 @@ public function TopSellingProduct(){
     if(!auth()->check()){
         return redirect('/');
     }else{
-        $dataSKU = DB::table('items')->pluck('SKU'); // Ambil semua SKU dari tabel items
+        $dataSKU = DB::table('items')->pluck('name'); // Ambil semua SKU dari tabel items
         //top online order
         $dataShipping = Shipping::whereIn('SKU', $dataSKU)
         ->select('SKU', DB::raw('SUM(quantity) as qty'))
@@ -158,12 +158,12 @@ public function TopSellingProduct(){
         ->orderBy('qty', 'desc')
         ->get();
         //top offline order
-        $dataOrder = Order::whereIn('SKU', $dataSKU)
-        ->select('SKU', DB::raw('SUM(quantity) as qty'))
-        ->groupBy('SKU')
+        $dataOrder = Order::whereIn('product', $dataSKU)
+        ->select('product', DB::raw('SUM(quantity) as qty'))
+        ->groupBy('product')
         ->orderBy('qty', 'desc')
-        ->get();
-        dd($dataSKU, $dataShipping, $dataOrder);
+        ->limit(5)->get();
+        return response()->json(['dataOrder' => $dataOrder, 'dataShipping' => $dataShipping]);
     }
 }
 
@@ -177,7 +177,6 @@ public function StockEachCategories(){
         ->groupBy('categories')
         ->orderBy('qty', 'desc')
         ->get();
-
         return response()->json($stockcategories);
     
     }
@@ -188,7 +187,7 @@ public function TotalSelling() {
     } else {
         $totalSelling = Order::select(DB::raw('DATE(updated_at) as date'), DB::raw('SUM(subtotal) as total'))
             ->groupBy(DB::raw('DATE(updated_at)'))
-            ->orderBy('date', 'desc')
+            ->orderBy('date')
             ->get();
 
         return response()->json($totalSelling);
