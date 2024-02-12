@@ -5,28 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
-    <title>Current Stock</title>
-    <style>
-        .cont-table{
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            /* width: 100%;
-            height: 100%; */
-        }
-        article.table-in{
-        }
-    </style>
+    <title>New Receive Goods</title>
 </head>
 <body>
     @include('_aside') 
     <main>
     @include('_header')
-    
-{{-- ! --}}
-<div  id="container-notif">
+  <div  id="container-notif">
   <div id="notif">
-    {{-- menampilkan error dari session --}}
     @if(session('success'))
     <div class="alert alert-success">
       <b> {{ session('success') }}</b>
@@ -44,16 +30,17 @@
   <h1 align='center'>Receive Goods</h1>
   <hr>
   </div>
-
-    <article class="table-in">
-        <div class="cont-table">
-            <div class="w-100 p-3">
-                <b>Inbound ID : </b><small id="idInbound" ></small><br>
-                <b>Purchase ID : </b><small>{{$IDPO}}</small><br>
-                <b>Invoice : </b><small>{{$dataItemsPO[0]->invoice}}</small><br>
-
-                <b>View Purchase File :@if($POFile == null) no file @else</b> <small><a href="./data_file/{{$POFile[0]}}" target="_blank" rel="noopener noreferrer">view File</a> @endif</small>
-              <table class="table table-striped table-hover" id="table-display">
+  <article>
+    
+      <div id="content-table">
+        <div class="w-100 p-3">
+          <b>Inbound ID : </b><small id="idInbound" ></small><br>
+          <b>Purchase ID : </b><small>{{$IDPO}}</small><br>
+          <b>Invoice : </b><small>{{$dataItemsPO[0]->invoice}}</small><br>
+          <b>View Purchase File :@if($POFile == null) no file @else</b> <small><a href="./data_file/{{$POFile[0]}}" target="_blank" rel="noopener noreferrer">view File</a> @endif</small>
+        </div>
+    
+              <table class="table table-striped table-hover">
                 <thead>
                   <tr>
                     <th>SKU</th>
@@ -135,7 +122,7 @@
                   </form>
 
                     <tr >
-                      <td colspan="11">
+                      <td colspan="10">
                         <div class="d-grid gap-2">
                           <button class="btn btn-primary" id="submitButton" >add</button>
                         </div>
@@ -144,13 +131,12 @@
                   </tfoot>
               </table>
             </div>
-          </div>
-        </div> 
     </article>
     {{-- ! --}}
     @include('_footer')
-</main>
-
+  </main>
+  
+</body>
  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
        <script>
@@ -181,9 +167,5 @@
       }, time);
 
     })
-
-
-
        </script>
-</body>
 </html>

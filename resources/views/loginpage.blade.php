@@ -68,7 +68,6 @@
 </div>
     <article class="loginpage">          
         <div class="bg-user">
-            
             <div class="cont-form-user">
                 <div class="row mb-3">
                     <h2 align="center"> Login</h2>

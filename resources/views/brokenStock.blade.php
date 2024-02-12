@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="../../style.css">
-    <title>Current Stock</title>
+    <title>New Broken Stock</title>
     <style>
       .cont-form{
         width: 50%;
@@ -27,6 +27,11 @@
         flex-direction: row;
         padding: 5px;
         background-color: gray;
+      }
+      @media(max-width: 750px){
+        .cont-form{
+        width: 100%;
+        }
       }
     </style>
 </head>

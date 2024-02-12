@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../style.css">
     <script type="text/javascript" src="sort-table.js"></script>
 
-    <title>OUT</title>
+    <title>Shipping</title>
     <style>
     </style>
 </head>
@@ -45,12 +45,13 @@
 </div>
 <div class="w-100 p-3 navbar bg-body-tertiary">
   <div>
-    <button class="btn btn-success" id="buttonShipping" onclick="generateShippingId()">New Shipping</button>
+    <button class="btn btn-success btn-lg" id="buttonShipping" onclick="generateShippingId()">New Shipping</button>
   </div>
 
 </div>
 
       <article>
+        <div id="content-table">
 
         <table class="table table-hover js-sort-table">
           <thead>
@@ -96,6 +97,7 @@
           @endforeach
         </tbody>
         </table>
+        </div>
         </article>
 
     @include('_footer')

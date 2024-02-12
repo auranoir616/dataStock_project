@@ -150,7 +150,7 @@ public function TopSellingProduct(){
     if(!auth()->check()){
         return redirect('/');
     }else{
-        $dataSKU = DB::table('items')->pluck('name'); // Ambil semua SKU dari tabel items
+        $dataSKU = DB::table('items')->pluck('SKU'); // Ambil semua SKU dari tabel items
         //top online order
         $dataShipping = Shipping::whereIn('SKU', $dataSKU)
         ->select('SKU', DB::raw('SUM(quantity) as qty'))
@@ -158,9 +158,9 @@ public function TopSellingProduct(){
         ->orderBy('qty', 'desc')
         ->get();
         //top offline order
-        $dataOrder = Order::whereIn('product', $dataSKU)
-        ->select('product', DB::raw('SUM(quantity) as qty'))
-        ->groupBy('product')
+        $dataOrder = Order::whereIn('SKU', $dataSKU)
+        ->select('SKU', DB::raw('SUM(quantity) as qty'))
+        ->groupBy('SKU')
         ->orderBy('qty', 'desc')
         ->limit(5)->get();
         return response()->json(['dataOrder' => $dataOrder, 'dataShipping' => $dataShipping]);
@@ -198,10 +198,33 @@ public function LowStockAlert(){
     if(!auth()->check()){
         return response()->json(['message' => 'Unauthorized'], 401);
     }else{
-        $dataLowStock = DB::table('items')->select('name','quantity')->orderBy('quantity')->limit(5)->get();
+        $dataLowStock = DB::table('items')->select('name','quantity')->orderBy('quantity')->limit(8)->get();
 
         return response()->json($dataLowStock);
     
+    }
+}
+
+public function RecentTransaction(){
+    if(!auth()->check()){
+        return response()->json(['message' => 'Unauthorized'], 401);
+    }else{
+        $recentPO = DB::table('purchase_order')->OrderBy('Created_at', 'desc')->limit(1)->get();
+        $recentRE = DB::table('returnin')->OrderBy('Created_at', 'desc')->limit(1)->get();
+        $recentIN = DB::table('in')->OrderBy('Created_at', 'desc')->limit(1)->get();
+        $recentSH = DB::table('shipping')->OrderBy('Created_at', 'desc')->limit(1)->get();
+        $recentOR = DB::table('order')->OrderBy('Created_at', 'desc')->limit(1)->get();
+        $recentBR = DB::table('brokenstock')->OrderBy('Created_at', 'desc')->limit(1)->get();
+        $recentIT = DB::table('sku')->OrderBy('Created_at', 'desc')->limit(1)->get();
+        return response()->json([
+            'recentPO' => $recentPO,
+            'recentRE' => $recentRE,
+            'recentIN' => $recentIN,
+            'recentSH' => $recentSH,
+            'recentOR' => $recentOR,
+            'recentBR' => $recentBR,
+            'recentIT' => $recentIT]);
+
     }
 }
 

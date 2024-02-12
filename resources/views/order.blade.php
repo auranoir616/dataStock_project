@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="../style.css">
-    <title>Current Stock</title>
+    <title>Order</title>
     <style>
       .cont-form{
         width: 50%;
@@ -112,7 +112,7 @@
         <div class="cont-table">
           <b>ID ORDER : </b>
           <small id="idOrder"> </small>
-          <div class="w-100 p-3">
+          <div class="w-100 p-3" id="content-table">
             <table class="table table-striped table-hover" id="table-display" width="100%">
               <thead>
                 <tr>

@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="../style.css">
-    <title>Current Stock</title>
+    <title>Return Receive</title>
     <style>
         .cont-table{
             display: flex;
@@ -46,7 +46,7 @@
   </div>
 
     <article class="table-in">
-        <div class="cont-table">
+        <div class="cont-table" id="content-table">
             <div class="w-100 p-3">
                 <b>Inbound ID : </b><small id="idReturn" ></small><br>
                 <b>Shipping ID : </b><small>{{$IDSH}}</small><br>

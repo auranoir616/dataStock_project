@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../style.css">
     <script type="text/javascript" src="sort-table.js"></script>
 
-    <title>return</title>
+    <title>Return</title>
     <style>
     </style>
 </head>
@@ -50,11 +50,14 @@
 </div>
 
       <article>
+        <div id="content-table">
+
+       
         <table class="table table-hover js-sort-table">
           <thead>
           <tr>
             <th>#</th>
-            <th>Shipping ID</th>
+            {{-- <th>Shipping ID</th> --}}
             <th>Receipt Number</th>
             <th>Expedition</th>
             <th>date sent</th>
@@ -66,7 +69,7 @@
             @foreach($dataReturn as $index => $data)
             <tr>
               <td>{{$index + 1}}</td>
-              <td>{{$data->return_id}}</td>
+              {{-- <td>{{$data->return_id}}</td> --}}
               <td>{{$data->receipt}}</td>
               <td>{{$data->expedition}}</td>
               <td>{{$data->date_sent}}</td>
@@ -88,7 +91,7 @@
             </tr>
           </tfoot>
         </table>
-
+      </div>
     </article>
 
     @include('_footer')

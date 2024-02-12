@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="../style.css">
-    <title>Purchase order</title>
+    <title>Receive Goods Detail</title>
     <style>
     </style>
 </head>
@@ -41,8 +41,8 @@
   <h1 align=center>Receive Item details</h1>
   </div>
       <article>
-        <div id="container-content">
-        <div class="w-100 p-3">
+        <div id="content-table">
+        <div class="w-100 p-3" >
             <p>
               <b>Inbound ID :</b> {{$dataItem[0]->Id_Inbound}}<br>
           <b>Purchase ID : </b>{{$dataItem[0]->purchase_Id}} <br>

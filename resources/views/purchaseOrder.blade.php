@@ -48,6 +48,8 @@
 </div>
 
       <article>
+        <div id="content-table">
+
         <table class="table table-hover js-sort-table">
           <thead>
                 <tr>
@@ -108,6 +110,7 @@
                    </tr>
               </tfoot>
         </table>
+        </div>
     </article>
 
     @include('_footer')

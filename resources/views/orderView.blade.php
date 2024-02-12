@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="../style.css">
-    <title>Purchase order</title>
+    <title>Order Detail</title>
     <style>
     </style>
 </head>
@@ -41,12 +41,13 @@
   <h1 align=center>Order details</h1>
   </div>
       <article>
-        <div id="container-content">
+        <div id="content-table">
         <div class="w-100 p-3">
           {{-- @if($dataPOView[0]->submited == 'yes' )<h5 style="color: red">SUBMITED</h5> @endif   --}}
 
           <a href="/order-history" class="btn btn-info">< back to Order History</a>
         </div>
+
         <table class="table table-hover">
             <thead>
                 <tr>
@@ -79,12 +80,12 @@
                    </tr>
                    <tr>
                     <td>
-                      <b>tax : </b>{{$DataOrderDetail[0]->tax}}%
+                      <b>tax : </b>@if(!$DataOrderDetail[0]->tax) 0% @endif
                     </td>
                    </tr>
                    <tr>
                     <td>
-                      <b>total cost(with tax) : </b>Rp.{{$DataOrderDetail[0]->cash}}
+                      <b>total cost(with tax) : </b>@if(!$DataOrderDetail[0]->cash) Rp.{{$DataOrderDetail[0]->subtotal}} @endif
 
                     </td>
                    </tr>

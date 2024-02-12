@@ -6,7 +6,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
     <script type="text/javascript" src="sort-table.js"></script>
-   <title>Current Stock</title>
+    <title>Receive Goods</title>
     <style>
     </style>
 </head>
@@ -45,17 +45,18 @@
   </div>
   
     <article>
-        <div class="w-100 p-3 navbar bg-body-tertiary">
-
-                <button class="btn btn-secondary btn-lg" type="button" aria-expanded="false" onclick="generateInId()">
-                  New In
-                </button>
-        </div>
+      
+      <div class="w-100 p-3 navbar bg-body-tertiary">
+        <button class="btn btn-secondary btn-lg" type="button" aria-expanded="false" onclick="generateInId()">
+          New In
+        </button>
+      </div>
+      <div id="content-table">
             <table class="table table-hover js-sort-table">
                 <thead>
                     {{-- <th>ID Inbound</th> --}}
                     {{-- <th>Purchase ID</th> --}}
-                    <th>SKU</th>
+                    {{-- <th>SKU</th> --}}
                     <th>Product</th>
                     <th>Qty</th>
                     <th>Unit</th>
@@ -72,7 +73,7 @@
                         {{-- <td>{{$data->Id_Inbound}}</td> --}}
                         {{-- <td>{{$data->purchase_Id}}</td> --}}
                         {{-- <td>{{$data->invoice}}</td> --}}
-                        <td>{{$data->SKU}}</td>
+                        {{-- <td>{{$data->SKU}}</td> --}}
                         <td>{{$data->product_name}}</td>
                         <td>{{$data->quantity}}</td>
                         <td>{{$data->unit}}</td>
@@ -97,6 +98,7 @@
                     </tr>
                 </tfoot>
               </table>
+      </div>
     </article>
     {{-- ! --}}
     @include('_footer')

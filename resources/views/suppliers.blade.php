@@ -6,7 +6,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
     <script type="text/javascript" src="sort-table.js"></script>
-
+    <title>Suppliers</title>
     <style>
       #container-form-supplier{
         background-color: rgb(247, 247, 247);
@@ -53,6 +53,7 @@
 
 
     <article>
+
       <div class="w-50 p-3" id="container-form-supplier">
         <form action="/suppliers-add" method="POST">
           @csrf
@@ -91,7 +92,7 @@
         
         </form>
       </div>
-      <div class="w-100 p-3">
+      <div class="w-100 p-3" id="content-table">
         <table class="table table-hover js-sort-table">
           <thead>
             <th>Name</th>

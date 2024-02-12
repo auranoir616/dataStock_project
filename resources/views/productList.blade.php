@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../style.css">
     <script type="text/javascript" src="sort-table.js"></script>
 
-    <title>OUT</title>
+    <title>Product List</title>
     <style>
     </style>
 </head>
@@ -75,7 +75,7 @@
           <hr>
         </div>
         
-        <div  class="w-100 p-3">
+        <div  class="w-100 p-3" id="content-table">
           <table class="table table-hover js-sort-table">
             <thead>
           <th width="5%">#</th>

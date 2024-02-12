@@ -24,9 +24,11 @@
             background-color: rgba(0, 0, 0, 0.5);
             padding: 20px
         }
-        .form-new-user{
-            /* display: flex; */
-            /* flex-wrap: wrap; */
+        @media(max-width:750px){
+          .cont-form-user{
+            height: auto;
+            width: auto;
+          }
         }
     </style>
 </head>
@@ -60,7 +62,7 @@
           </div>
           </div>
           
-        <div class="bg-user">
+        <div class="bg-user" id="content-table">
             <div class="cont-form-user">
                 <div class="row mb-3">
 

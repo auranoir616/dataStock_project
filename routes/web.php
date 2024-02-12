@@ -124,6 +124,7 @@ Route::get('/topsellingproduct', [Controller_Data::class, 'TopSellingProduct']);
 Route::get('/stockcategory', [Controller_Data::class, 'StockEachCategories']);
 Route::get('/totalselling', [Controller_Data::class, 'TotalSelling']);
 Route::get('/lowstockalert', [Controller_Data::class, 'LowStockAlert']);
+Route::get('/recenttransaction', [Controller_Data::class, 'RecentTransaction']);
 
 
 
