@@ -131,14 +131,14 @@ class Controller_Data extends Controller
     }   
     public  function searchproduct(Request $request){
         $query = $request->input('query');
-        $dataItems = Items::where('name','like',"%$query%")->get();
-        $dataShipping = Shipping::where('product','like',"%$query%")->get();
-        $dataOrder = Order::where('product','like',"%$query%")->get();
-        $dataIn = In::where('product_name','like',"%$query%")->get();
-        $dataReturn = ReturnIn::where('product','like',"%$query%")->get();
+        $dataItems = Items::where('name','like',"%$query%")->orderBy('updated_at', 'desc')->get();
+        $dataShipping = Shipping::where('product','like',"%$query%")->orderBy('updated_at', 'desc')->get();
+        $dataOrder = Order::where('product','like',"%$query%")->orderBy('updated_at', 'desc')->get();
+        $dataIn = In::where('product_name','like',"%$query%")->orderBy('updated_at', 'desc')->get();
+        $dataReturn = ReturnIn::where('product','like',"%$query%")->orderBy('updated_at', 'desc')->get();
         $dataPO = DB::table('purchase_order')->join('items', 'purchase_order.SKU', '=', 'items.SKU')
 
-        ->where('items.name','like',"%$query%")->select('items.name as product_name', 'purchase_order.*')->get();
+        ->where('items.name','like',"%$query%")->select('items.name as product_name', 'purchase_order.*')->orderBy('updated_at', 'desc')->get();
 // dd($dataOrder);
         return view('searchResult', compact('dataReturn','dataItems','dataShipping','dataOrder','dataIn','dataPO'));
 
