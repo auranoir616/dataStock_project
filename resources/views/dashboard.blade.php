@@ -22,7 +22,8 @@
         width: 30%;
         height: 50%;
         border: 2px solid black;
-        border-radius: 5px
+        border-radius: 5px;
+        padding: 10px
       }
       .cont-table{
         width: 100%;
@@ -151,6 +152,8 @@ const notif = document.getElementById('notif')
      dataset.push(data.dataOrder[x].qty)
     }
   const ctx = document.getElementById('myChart');
+  Chart.defaults.font.size = 10;
+
   new Chart(ctx, {
     type: 'bar',
     data: {
