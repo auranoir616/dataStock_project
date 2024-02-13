@@ -44,7 +44,7 @@
 <div class="w-100 p-3 navbar bg-body-tertiary">
   <div class="dropdown">
     <button class="dropdown-toggle btn btn-danger btn-lg" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-      Dropdown button
+      Add New Broken Stock
     </button>
     <ul class="dropdown-menu">
       <li> <a href="#" class="dropdown-item" onclick="generateIdBroken()">New Broken Stock</a></li>

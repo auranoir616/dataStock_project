@@ -10,7 +10,6 @@
         .bg-user{
             height: 100%;
             width: 100%;
-            background-image: url('bg_warehouse.jpg');
             background-size: 100%;
             display: flex;
             justify-content: center;
