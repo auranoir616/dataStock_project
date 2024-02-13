@@ -7,7 +7,7 @@
   <nav class="navbar bg-body-tertiary">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">
-        <img src="icon_warehouse.jpg" alt="Logo" width="40" height="40" class="d-inline-block align-text-top">
+        <img src="../icon_warehouse.jpg" alt="Logo" width="40" height="40" class="d-inline-block align-text-top">
         Warehouse Management System
       </a>
       <div class="btn-group dropstart">

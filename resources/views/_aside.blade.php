@@ -5,7 +5,7 @@
   
   ?>
 
-    <h5>Stock</h5>
+    <h5>Warehouse</h5>
     <ul class="list-group list-group-flush">
         <a href="/dashboard" class="list-group-item list-group-item-action">
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard-data-fill" viewBox="0 0 16 16">

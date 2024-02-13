@@ -71,7 +71,7 @@
             @csrf
             <div class="col-md-6">
               <label class="form-label">SKU</label>
-              <input type="text" class="form-control" id="ORSKU" name="ORSKU" oninput="getSuggestions()" value="">
+              <input type="text" class="form-control" id="ORSKU" name="ORSKU" oninput="getSuggestions()" value="" autocomplete="off">
               <div id="suggestion-list" class="list-group z-3 position-absolute">
               </div>
             </div>

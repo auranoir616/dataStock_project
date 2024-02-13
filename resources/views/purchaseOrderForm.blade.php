@@ -92,7 +92,7 @@
             </div>
             <div class="col-md-6">
               <label class="form-label">SKU</label>
-              <input class="form-control" aria-label="Default select example" id="POSKU"  name="POSKU" oninput="getSuggestions()">
+              <input class="form-control" aria-label="Default select example" id="POSKU"  name="POSKU" oninput="getSuggestions()" autocomplete="off">
               <div id="suggestion-list" class="list-group z-3 position-absolute" >
               </div>
 

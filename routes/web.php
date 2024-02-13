@@ -126,7 +126,14 @@ Route::get('/totalselling', [Controller_Data::class, 'TotalSelling']);
 Route::get('/lowstockalert', [Controller_Data::class, 'LowStockAlert']);
 Route::get('/recenttransaction', [Controller_Data::class, 'RecentTransaction']);
 
+Route::get('/tes', function(){
+    if(auth()->check()){
+        return view('test');
+    }else{
+    return view('loginpage');
+    }
 
+});
 
 
 
