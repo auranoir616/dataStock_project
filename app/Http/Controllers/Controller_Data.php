@@ -27,17 +27,17 @@ class Controller_Data extends Controller
          ->get();
          
          $dataOrder = Order::whereIn('SKU', $dataSKU)
-         ->select('SKU', DB::raw('MAX(updated_at) as last_out'))
+         ->select('SKU', DB::raw('MAX(updated_at) as last_order'))
          ->groupBy('SKU')
          ->get();
          
          $dataShipping = Shipping::whereIn('SKU', $dataSKU)
-         ->select('SKU', DB::raw('MAX(updated_at) as last_out'))
+         ->select('SKU', DB::raw('MAX(updated_at) as last_ship'))
          ->groupBy('SKU')
          ->get();
          
          $dataReturn = ReturnIn::whereIn('SKU', $dataSKU)
-         ->select('SKU', DB::raw('MAX(updated_at) as last_out'))
+         ->select('SKU', DB::raw('MAX(updated_at) as last_return'))
          ->groupBy('SKU')
          ->get();
          

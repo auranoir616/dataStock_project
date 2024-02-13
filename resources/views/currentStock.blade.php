@@ -94,21 +94,21 @@
                       <td>
                           @foreach($dataOrder as $dataOrderItem)
                               @if($dataOrderItem->SKU == $item->SKU)
-                                  {{\Carbon\Carbon::parse($dataOrderItem->last_Out)->format('d M Y')}}
+                                  {{\Carbon\Carbon::parse($dataOrderItem->last_order)->format('d M Y')}}
                               @endif
                           @endforeach
                       </td>
                       <td>
                         @foreach($dataShipping as $dataShippingItem)
                             @if($dataShippingItem->SKU == $item->SKU)
-                            {{\Carbon\Carbon::parse($dataShippingItem->last_Out)->format('d M Y')}}
+                            {{\Carbon\Carbon::parse($dataShippingItem->last_ship)->format('d M Y')}}
                             @endif
                         @endforeach
                     </td>
                     <td>
                       @foreach($dataReturn as $dataReturnItem)
                           @if($dataReturnItem->SKU == $item->SKU)
-                          {{\Carbon\Carbon::parse($dataReturnItem->last_Out)->format('d M Y')}}
+                          {{\Carbon\Carbon::parse($dataReturnItem->last_return)->format('d M Y')}}
                           @endif
                       @endforeach
                   </td>
