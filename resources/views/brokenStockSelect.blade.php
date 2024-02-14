@@ -48,7 +48,7 @@
               <select class="form-select" aria-label="Default select example" name="selectID" value='' id="selectID">
                   @foreach($dataBrokenReturn as $broken)
                   <option value="{{$broken->SKU}},{{$broken->return_id}}">
-                   {{$broken->SKU}}  <small>{{$broken->return_id}}</small>
+                   {{$broken->SKU}}  <small>{{$broken->return_id}}</small> {{$broken->id}}
                   </option> 
                   @endforeach
             </select>                  

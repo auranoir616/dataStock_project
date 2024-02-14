@@ -42,7 +42,6 @@ class Controller_Return extends Controller
                 if(auth()->check()){
                     $ShippingIDSelect = DB::table('shipping')->select('shipping_id','status')->distinct()
                     ->where(function($query) {$query->where('status', 'Returned')->orWhere('status', 'Cancel');})->where('submited_in', 'no')->get();
-                    // dd($POSelect);
                     return view('returnForm',compact('ShippingIDSelect',));
 
                 }else{
@@ -95,7 +94,7 @@ class Controller_Return extends Controller
                 'addReturnProduct.' . $key => 'required|string',
                 'addReturnDateSent.' . $key => 'required|string',
                 'addReturnQuantity.' . $key => 'required|integer',
-                'addReturnNotes.' . $key => 'nullable|integer',
+                'addReturnNotes.' . $key => 'nullable|string',
                 'addReturnFile.' . $key => 'nullable|mimes:jpeg,png,jpg,gif,webp|max:2048',
                 'addReturnPlacement.' . $key => 'required|string',
                 'addReturnCheck.' . $key => 'required|in:checked',
@@ -135,22 +134,28 @@ if ($request->hasFile('addReturnFile')) {
     }
 }    
     foreach ($saveDataReturn as $data) {
+
+        // dd($data['return_id'],$data['SKU'] );
         ReturnIn::create($data);
-        // dd($data);
         if ($data['placement'] !== 'Broken') {
         $increaseItems = Items::where("SKU", $data['SKU'])->first();
         if($increaseItems){
         $increaseItems->quantity += $data['quantity'];
         $increaseItems->save();
         ReturnIn::where('SKU', $data['SKU'])->update(['submited' => 'yes']); 
-        Shipping::where('shipping_id', $data['shipping_id'])->update(['submited_in' => 'yes']);
         }
         // dd($increaseItems);
         // return redirect()->back()->with('error', 'update quantity gagal');
     }else{
-        ReturnIn::where('SKU', $data['SKU'])->update(['submited' => 'Broken']); 
-        //!
+        //! sebab
+        ReturnIn::where('return_id', $data['return_id'])->where('SKU', $data['SKU'])->update(['submited' => 'Broken']);
+        $increaseItems = Items::where("SKU", $data['SKU'])->first();
+        if($increaseItems){
+            $increaseItems->quantity += $data['quantity'];
+            $increaseItems->save();
+        }    
     }
+    Shipping::where('shipping_id', $data['shipping_id'])->update(['submited_in' => 'yes']);
 
 
     }

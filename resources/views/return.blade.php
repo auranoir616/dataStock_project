@@ -45,7 +45,9 @@
 </div>
 <div class="w-100 p-3 navbar bg-body-tertiary">
   <div>
-    <button class="btn btn-warning btn-lg" id="newReturn">New Return</button>
+    <button class="btn btn-warning btn-lg" id="newReturn">
+      New Return  
+    </button>
   </div>
 </div>
 

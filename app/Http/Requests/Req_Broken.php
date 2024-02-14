@@ -23,6 +23,7 @@ class Req_Broken extends FormRequest
     {
         return [
             'brokenID' => 'required',
+            'itemID' => 'nullable',
             'brokenSKU' => 'required',
             'brokenProduct' => 'required',
             'brokenQuantity' => 'required',

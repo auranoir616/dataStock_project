@@ -100,6 +100,7 @@
                     <th>Notes</th>
                     <th>Placement</th>
                     <th>File</th>
+                    <th>Status</th>
                 </tr>
                 </thead>
                 <tbody  class="table-group-divider">
@@ -112,9 +113,15 @@
                         <td>{{$data->notes}}</td>
                         <td>{{$data->placement}}</td>
                         <td>@if($data->files == null) No File @else<a href="../data_file/{{$data->files}}" target="_blank">View File</a> @endif</td>
-                    @endforeach
+                        <td>@if($data->submited == 'Broken')Not Submited @elseif($data->submited == 'submited broken')Is Broken @else In Stock @endif</td>
+                        @endforeach
                 </tbody>
                 <tfoot>
+                  <tr>
+                    <td>
+                      @if($dataReturn[0]->submited !== 'broken') <h2>Submited</h2> @endif
+                    </td>
+                  </tr>
               </tfoot>
         </table>
         </div>

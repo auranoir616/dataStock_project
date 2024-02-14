@@ -44,7 +44,10 @@
 <div class="w-100 p-3 navbar bg-body-tertiary">
   <div class="dropdown">
     <button class="dropdown-toggle btn btn-danger btn-lg" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-      Add New Broken Stock
+      Add New Broken Stock  <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-primary">
+       {{$dataBrokenReturnCount}}
+        <span class="visually-hidden">unread messages</span>
+      </span>
     </button>
     <ul class="dropdown-menu">
       <li> <a href="#" class="dropdown-item" onclick="generateIdBroken()">New Broken Stock</a></li>

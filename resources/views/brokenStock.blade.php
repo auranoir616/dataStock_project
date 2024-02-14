@@ -74,11 +74,15 @@
         <div class="w-100 p-3">
           <form class="row g-3" action="{{ url('/broken-new') }}" method="POST" enctype="multipart/form-data">
             @csrf
-            <div class="col-md-6" style="display: none">
+            <div class="col-md-6" style="display: ">
               <label class="form-label">Broken ID</label>
-              <input type="text" class="form-control" id="brokenID" name="brokenID" value="">
+              <input type="text" class="form-control" id="brokenID" name="brokenID" value="" readonly>
               </div>
-           
+              <div class="col-md-6" style="display: none">
+                <label class="form-label">item ID</label>
+                <input type="text" class="form-control" id="itemID" name="itemID" value="@if(empty($dataFromReturn[0])) @else{{$dataFromReturn[0]->id}}@endif">
+                </div>
+  
             <div class="col-md-6">
               <label class="form-label">SKU</label>
               <input type="text" class="form-control" id="brokenSKU" name="brokenSKU" oninput="getSuggestions()" value="@if(empty($dataFromReturn[0])) @else{{$dataFromReturn[0]->SKU}}@endif">
@@ -87,7 +91,7 @@
             </div>
             <div class="col-md-6">
               <label class="form-label">Product</label>
-              <input type="text" class="form-control" id="brokenProduct" name="brokenProduct" value="@if(empty($dataFromReturn[0])) @else{{$dataFromReturn[0]->product}}@endif">
+              <input type="text" class="form-control" id="brokenProduct" readonly name="brokenProduct" value="@if(empty($dataFromReturn[0])) @else{{$dataFromReturn[0]->product}}@endif">
             </div>
             <div class="col-md-6">
               <label class="form-label">Quantity</label>

@@ -16,10 +16,11 @@ class Controller_Broken extends Controller
             return redirect('/');
         }else{
             $dataBroken = DB::table('brokenstock')->paginate(7);
-            return view('brokenStockHistory',compact('dataBroken'));
+            $dataBrokenReturnCount = ReturnIn::where('submited', 'Broken')->count();
+            return view('brokenStockHistory',compact('dataBroken','dataBrokenReturnCount'));
         }
     }
-
+//!
     public function dataBrokenSelect(){
         if(!auth()->check()){
             return redirect('/');
@@ -44,7 +45,8 @@ class Controller_Broken extends Controller
         if(!auth()->check()){
             return redirect('/');
         }else{
-            $dataFromReturn = DB::table('returnin')->where('return_id', $IDRE)->where('SKU', $SKU)->get();
+            $dataFromReturn = DB::table('returnin')->where('return_id', $IDRE)->where('SKU', $SKU)->where('submited','Broken')->get();
+
             // dd($dataFromReturn);
             return view('brokenStock',compact('dataFromReturn'));
         }
@@ -57,7 +59,6 @@ class Controller_Broken extends Controller
         } else {
             $dataBroken = $request->validated();
             $file = $request->file('brokenFile');
-    
             if ($request->hasFile('brokenFile') && $file->isValid() && in_array($file->getClientOriginalExtension(), ['jpeg', 'png', 'jpg', 'gif', 'webp'])) {
                 $fileName = time() . "_broken_" . $file->getClientOriginalName();
                 $folder_upload = 'data_file';
@@ -79,7 +80,7 @@ class Controller_Broken extends Controller
                         $decreaseItems->quantity -= $saveDataBroken['quantity'];
                         $decreaseItems->save();
                         }
-                        $setStatusReturn = ReturnIn::where('return_id', $saveDataBroken['reference'])->where('SKU', $saveDataBroken['SKU'])->first();
+                        $setStatusReturn = ReturnIn::where('return_id', $saveDataBroken['reference'])->where('id', $request['itemID'])->first();
                         if($setStatusReturn){
                         $setStatusReturn->update(['submited' => 'submited broken']); 
                        }

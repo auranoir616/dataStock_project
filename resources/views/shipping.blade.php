@@ -96,6 +96,15 @@
           </tr>
           @endforeach
         </tbody>
+        <tfoot>
+          <tr>
+            <td colspan="8">
+              {{ $shipping->appends(request()->query())->links('pagination::bootstrap-5') }}
+
+            </td>
+          </tr>
+
+        </tfoot>
         </table>
         </div>
         </article>

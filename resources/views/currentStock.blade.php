@@ -46,7 +46,7 @@
 
 
     <article>
-            <div class="w-100 p-3" id="content-table">
+            <div class="w-100 p-3" id="content-table" style="overflow: auto">
               <table class="table table-hover js-sort-table">
                 <thead>
                       <tr>
