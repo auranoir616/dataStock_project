@@ -97,7 +97,7 @@
         </tbody>
         <tfoot>
           <tr>
-            <td colspan="3">
+            <td colspan="4">
               {{ $listSKU->appends(request()->query())->links('pagination::bootstrap-5') }}
 
             </td>

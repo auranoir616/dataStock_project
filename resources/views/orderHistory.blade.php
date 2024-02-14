@@ -67,7 +67,7 @@
                        $countSubmited = $data->submited->where('1')->count();   
                       @endphp --}}
                         <td>{{$data->order_id}}</td>
-                        <td>{{$data->updated_at}}</td>
+                        <td>{{ \Carbon\Carbon::parse($data->updated_at)->format('d M Y')}}</td>
                         <td>Rp.{{$data->subtotal}}</td>
                         <td>
                           <a href="/order-view/{{$data->order_id}}" class="btn btn-info">View Detail</a>

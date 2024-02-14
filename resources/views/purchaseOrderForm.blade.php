@@ -105,15 +105,6 @@
               <label class="form-label">Quantity</label>
               <input type="number" class="form-control" id="POQuantity" name="POQuantity">
             </div>
-
-            {{-- <div class="col-md-6">
-              <label class="form-label">Payment</label>
-            <select class="form-select" aria-label="Default select example" name="POPayment" id="POPayment">
-              <option value="Cash">Paid</option>
-              <option value="Credit">Credit</option>
-              <option value="Loan">Loan</option>
-            </select>
-            </div> --}}
             <div class="col-md-6">
               <label for="formFile" class="form-label">File</label>
               <input class="form-control" type="file" id="POFile" name="POFile">

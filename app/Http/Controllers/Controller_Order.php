@@ -7,10 +7,28 @@ use App\Models\Order;
 use Illuminate\Http\Request;
 use App\Http\Requests\Req_Order;
 use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 
 
 class Controller_Order extends Controller
 {
+
+
+// public function formatTimeAgo($updatedAt){
+//     $updatedTime = Carbon::parse($updatedAt);
+//     $now = Carbon::now();
+
+//     if ($updatedTime->diffInDays($now) > 0) {
+//         return $updatedTime->diffInDays($now) . ' days ago';
+//     } elseif ($updatedTime->diffInHours($now) > 0) {
+//         return $updatedTime->diffInHours($now) . ' hours ago';
+//     } elseif ($updatedTime->diffInMinutes($now) > 0) {
+//         return $updatedTime->diffInMinutes($now) . ' minutes ago';
+//     } else {
+//         return 'Just now';
+//     }
+// }
+
     public  function SuggestionSKU(Request $request){
         $query = $request->input('query');
         $suggestions = Items::where('SKU','like',"%$query%")->limit(5)->pluck('SKU');
@@ -93,6 +111,11 @@ public function dataOrderHistory(){
         }
         $dataOrderQuery = DB::table('order')->whereIn('id', $dataIdOrder->pluck('id'));
         $dataOrder = $dataOrderQuery->orderBy('created_at','desc')->paginate(7);
+        //format waktu sebelum ditampilkan
+        // foreach ($dataOrder as $order) {
+        //     $order->formatted_updated_at = $this->formatTimeAgo($order->updated_at);
+        // }
+        
             return view('orderHistory',compact('dataOrder'));   
     }
 }

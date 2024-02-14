@@ -74,8 +74,8 @@
               {{-- <td>{{$data->return_id}}</td> --}}
               <td>{{$data->receipt}}</td>
               <td>{{$data->expedition}}</td>
-              <td>{{$data->date_sent}}</td>
-              <td>{{$data->created_at}}</td>
+              <td>{{ \Carbon\Carbon::parse($data->date_sent)->format('d M Y')}}</td>
+              <td>{{ \Carbon\Carbon::parse($data->created_at)->format('d M Y')}}</td>
                 <td>
              <a class="btn btn-warning" href="/return-view/{{$data->return_id}}">View Detail</a>
                 </td>

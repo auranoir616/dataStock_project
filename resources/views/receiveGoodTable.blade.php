@@ -30,7 +30,7 @@
   <h1 align='center'>Receive Goods</h1>
   <hr>
   </div>
-  <article>
+  <article >
     
       <div id="content-table">
         <div class="w-100 p-3">

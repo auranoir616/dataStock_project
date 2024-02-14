@@ -51,7 +51,7 @@
         <div class="w-100 p-3" >
           <p>
             <b>Purchase Order ID :</b> {{$IDPO}} <br>
-          <b>Date Create :</b>{{$dataPOView[0]->create_date}}
+          <b>Date Create :</b>{{ \Carbon\Carbon::parse($dataPOView[0]->create_date)->format('d M Y')}}
           </p> 
           <a href="/purchaseOrder" class="btn btn-info" >< back to Purchase Order</a>
         </div>

@@ -69,7 +69,7 @@
                        $countSubmited = $data->submited->where('1')->count();   
                       @endphp --}}
                         <td>{{$data->purchase_id}}</td>
-                        <td>{{$data->create_date}}</td>
+                        <td>{{ \Carbon\Carbon::parse($data->create_date)->format('d M Y')}}</td>
                         <td>{{$data->invoice}}</td>
                         <td>
                           <div class="col-md-6 form_status">
